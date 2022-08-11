@@ -2,7 +2,7 @@ const Data = [
     {
       "id": 1,
       "title": "Skincare",
-      "imageUrl": "https://images.unsplash.com/photo-1590393802710-dbf451560939?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=900&q=60"
+      "imageUrl": "https://images.unsplash.com/photo-1631730486572-226d1f595b68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80"
     },
     {
       "id": 2,
