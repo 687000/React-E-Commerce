@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { createAuthUserWithEmailAndPassword,createUserDocumentFromAuth,signInAuthUserWithEmailAndPassword,signInWithGooglePopup} from "../../utils/firebase/firebase.utils";
+import { useState} from "react";
+import { createUserDocumentFromAuth,signInAuthUserWithEmailAndPassword,signInWithGooglePopup} from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import './sign-in-form.styles.scss'
@@ -11,45 +11,13 @@ const SignInForm=()=>{
     
     const [formFields,setFormFields]=useState(defaultFormFields);
     const {email,password}=formFields;
-    /*
-    //confirm password
-    //call createAuthUserWithEmailAndPassword
-    //create userDoc
-    const handleSubmit=async(event)=>{
-        event.preventDefault();
-        if(password!==confirmPassword){
-            alert("passwords do not match");
-            return;
-        }
-        try{
-            const {user}=await createAuthUserWithEmailAndPassword(email,password);
-            await createUserDocumentFromAuth(user,{displayName});
-            setFormFields(defaultFormFields);
-        }catch(error){
-            if(error.code==='auth/email-already-in-use'){
-                alert('Cannot create user, email already in use');
-            }else if(error.code==='auth/weak-password'){
-                alert('Cannot create user, password shoule be at least 6 characters');
-            }
-            else{
-                console.log('user creation encountered an error',error);
-            }
-        }
-    };
-    const handleChange=(e)=>{
-        const {name,value}=e.target;
-        setFormFields({
-            ...formFields,[name]:value})};
-            */
     const signInWithGoogle =async()=>{
-        const {user}=await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user);
+        await signInWithGooglePopup();
     }
     const handleSubmit=async(event)=>{
         event.preventDefault();
         try{
-            const response=await signInAuthUserWithEmailAndPassword(email,password);
-            console.log(response)
+            await signInAuthUserWithEmailAndPassword(email,password);
             setFormFields(defaultFormFields);
         }catch(error){
             switch(error.code){
