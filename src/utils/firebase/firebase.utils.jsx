@@ -64,8 +64,8 @@ const firebaseConfig = {
   export const getCategoriesAndDocuments=async()=>{
     const collectionRef=collection(db,'categories');
     const q=query(collectionRef);
-    const querySnaoshot=await getDocs(q);
-    const categoryMap=querySnaoshot.docs.reduce((acc,docSnapshot)=>{
+    const querySnapshot=await getDocs(q);
+    const categoryMap=querySnapshot.docs.reduce((acc,docSnapshot)=>{
         const {title,items}=docSnapshot.data();
         acc[title.toLowerCase()]=items;
         return acc;
