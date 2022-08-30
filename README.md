@@ -1,4 +1,4 @@
-# l-makeup
+# REACT E COMMERCE
 
 This is a react e-commerce website referring the tutorial by ZTM.
 
