@@ -4,7 +4,7 @@
   row-gap: 20px;
   column-gap: 10px;
 }
-.category-container {
+.directory-item-container {
     min-width: 30%;
     height: 240px;
     flex: 1 1 auto;
@@ -45,7 +45,7 @@
       
     }
   
-    .category-body-container {
+    .body {
       height: 90px;
       padding:0  25px;
       display: flex;
