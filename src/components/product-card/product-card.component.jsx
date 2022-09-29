@@ -13,7 +13,7 @@ const ProductCard=({product})=>{
     const addProductToCart=()=>dispatch(addItemToCart(cartItems,product));
     return (
     <ProductCartContainer>
-        <img src={imageUrl} alr={`${name}`}/>
+        <img src={imageUrl} alt={`${name}`}/>
             <Footer>
                 <Name>{name}</Name>
                 <Price>${price}</Price>
