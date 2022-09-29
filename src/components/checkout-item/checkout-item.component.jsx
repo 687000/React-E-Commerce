@@ -1,13 +1,14 @@
 import './checkout-item.styles.scss'
-import { useContext } from 'react';
-import { CartContext } from '../../contexts/cart.context';
-
+import { useDispatch,useSelector } from 'react-redux';
+import { selectCartItems } from '../../store/cart/cart.selector';
+import { addItemToCart, reduceItemFromCart, removeItemFromCart } from '../../store/cart/cart.action';
 const CheckoutItem=({checkoutItem})=>{
    const {name,imageUrl,price,quantity}=checkoutItem;
-   const {addItemToCart,reduceItemFromCart,removeItemFromCart}=useContext(CartContext);
-   const addProductToCart=()=>{addItemToCart(checkoutItem)};
-   const reduceProductFromCart=()=>{if(quantity>1){return reduceItemFromCart(checkoutItem)}}
-   const removeProductFromCart=()=>{removeItemFromCart(checkoutItem)}
+   const dispatch=useDispatch();
+   const cartItems=useSelector(selectCartItems);
+   const addProductToCart=()=>dispatch(addItemToCart(cartItems,checkoutItem));
+   const reduceProductFromCart=()=>{if(quantity>1){return dispatch(reduceItemFromCart(cartItems,checkoutItem))}}
+   const removeProductFromCart=()=>dispatch(removeItemFromCart(cartItems,checkoutItem));
     return (
         <div className='checkout-item-container'>
             <div className='image-container'><img src={imageUrl} alt={`${name}`}/></div>
