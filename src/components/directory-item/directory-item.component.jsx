@@ -9,7 +9,7 @@ const DirectoryItem=({category})=>{
           }}/>
           <div className="body">
             <h2>{title}</h2>
-            <p>Shop Now</p>
+            <a href={'/shop/' + title}>Shop Now</a>
           </div>
         </div>
     )
